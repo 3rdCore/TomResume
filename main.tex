@@ -19,7 +19,16 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
+\usepackage{fontawesome5} % for icons
+\usepackage{xcolor} % for link coloring
+\usepackage[margin=1in]{geometry}
+\usepackage{tcolorbox}
+\usepackage{array}
 
+% To align elements horizontally
+\tcbuselibrary{skins}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 %----------FONT OPTIONS----------
 % sans-serif
@@ -112,11 +121,20 @@
 % \end{tabular*}
 
 \begin{center}
-    \textbf{\Huge \scshape Tom Marty} \\ \vspace{1pt}
-        \href{https://3rdcore.github.io/}{\underline{https://3rdcore.github.io}}  $|$     \href{mailto:x@x.com}{\underline{tom.marty@mila.quebec}} $|$ 
-    Montreal, Canada
-    
+    \textbf{\Huge \scshape Tom Marty} \\[10pt]
+    \begin{tabular}{c@{\hspace{1cm}}c@{\hspace{1cm}}c}
+        % Top row with globe, email, and location
+        \faIcon{globe} \href{https://3rdcore.github.io/}{\underline{3rdcore.github.io}} & 
+        \faIcon{envelope} \href{mailto:tom.marty@mila.quebec}{tom.marty@mila.quebec} & 
+        Montreal, Canada \\
+        
+        % Bottom row for social media icons
+        \href{https://github.com/3rdCore}{\faGithub\,\,Github} & % Aligned with globe
+        \href{https://www.linkedin.com/in/tom-marty/}{\faLinkedin \,\,LinkedIn} & % Aligned with envelope
+        \href{https://twitter.com/tommarty13}{\faTwitter \,\, Twitter} % Aligned with location
+    \end{tabular}
 \end{center}
+
 
 
 %-----------EDUCATION-----------
@@ -135,7 +153,6 @@
       \vspace{.2pt}
       \begin{itemize}
           \item \textbf{Courses :} Représentation Learning (Aaron Courville) $|$ Spectral Graph Theory (Guy Wolf) $|$ Continual Learning (Irina Rish)  
-          \item \textbf{\href{https://github.com/corail-research/SeaPearl.jl}{SeaPearl} (Thesis) - Supervised by Quentin Cappart and Louis-Martin Rousseau:} Using RL and Graph Representation Learning to accelerate discrete optimization problem solving process - paper accepted at \textbf{CP 2023}
       \end{itemize}
     \resumeSubheading
       {Ecole Polytechnique - X 2018}{Sep. 2018 -- Jun. 2021}
@@ -153,14 +170,13 @@
 
 
 %-----------EXPERIENCE-----------
-\section{Experience}
+\section{Industry and Academic Experience}
   \resumeSubHeadingListStart
       \resumeSubheading
       {Visiting Researcher}{Apr. 2023 -- Sept. 2023}
       {\href{https://corail-research.github.io/}{ServiceNow Research}}{Montréal, Canada}
     \resumeItemListStart
-        \resumeItem{Developped WebArena : an open-source Benchmark and Gym environment for evaluating Agent at solving tasks on a Web Browser}
-        \resumeItem{Workshop paper accepted at NeurIPS 2023 FMDM Workshop. One paper under review at ICML 2024.}
+        \resumeItem{Developped WorkArena : an open-source Benchmark and Gym environment for evaluating Agent at solving common-knowledge tasks on a Web Browser}
       \resumeItemListEnd
       \resumeSubheading
       {Research Supervisor}{Jan. 2022 -- Sept. 2022}
@@ -180,37 +196,67 @@
       {Software Engineer Intern}{Jun. 2020 -- Sept. 2020}
       {Dronisos, drone light show company}{Bordeaux, France}
       \resumeItemListStart
-        \resumeItem{Developed \textit{Harmony}, a Physics based meta-heuristic that secures massive drone swarms ( NP-Complete ) }
+        \resumeItem{Developed \textit{Harmony}, a Physics based meta-heuristic that secures massive drone swarms }
                 \resumeItem{\textit{Harmony} - currently in use - reduced the allocated securing time from 2 weeks (handmade) to 2 seconds}
         \resumeItem{Achieved automatic securing on the company first 1000 drones choreography (+500k\$ show)}
       \resumeItemListEnd
-      
-    \resumeSubheading
-      {Teaching Assistant}{Nov. 2018 -- Mar. 2019}
-      {Ministry of National Education}{Noyon, France}
-      \resumeItemListStart
-        \resumeItem{Responsible for a group of up to 20 undergraduate students during scientific workshops}
-        \resumeItem{Worked alongside the academic team to prepare students for entrance exams}
-
-    \resumeItemListEnd
+    
   \resumeSubHeadingListEnd
 
 
-%-----------PROJECTS-----------
-\section{Projects}
+%-----------Invited Talks-----------
+\section{Publications}
+% You can adjust the formatting here as needed
+
+\begin{tcolorbox}[enhanced, sharp corners, colback=white, colframe=black!10!white, boxrule=0.5mm, left=10pt, right=10pt, top=6pt, bottom=3pt]
+    \textbf{Learning a Generic Value-Selection Heuristic Inside a Constraint Programming Solver} \\
+    \textbf{Tom Marty}*, Tristan François, Pierre Tessier, Louis Gautier, Léo-Boisvert, Louis-Martin Rousseau, Quentin Cappart, (extended version)\\
+    Constraint Journal \hfill \textit{*under review} 
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced, sharp corners, colback=white, colframe=black!10!white, boxrule=0.5mm, left=10pt, right=10pt, top=6pt, bottom=3pt]
+    \textbf{WorkArena: How Capable Are Web Agents at Solving Common Knowledge Work Tasks?} \\
+    Alexandre Drouin, Maxime Gasse, Massimo Caccia, Issam H Laradji, Manuel Del Verne, \textbf{Tom Marty}, Léo Boisvert, Megh Thakkar, Quentin Cappart, David Vazquez, Nicolas Chapados, Alexandre Lacoste \\
+    International Conference on Machine Learning (ICML). 2024.  \hfill
+\faLink \,\href{https://servicenow.github.io/WorkArena/}{Project}\quad \faCode\, \href{https://github.com/corail-research/SeaPearl.jl}{Code}\quad \faFilePdf \, \href{https://openreview.net/forum?id=jt3il4fC5B}{PDF}
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced, sharp corners, colback=white, colframe=black!10!white, boxrule=0.5mm, left=10pt, right=10pt, top=6pt, bottom=3pt]
+    \textbf{The Unsolved Challenges of LLMs as Generalist Web Agents: A Case Study} \\
+    Rim Assouel*, \textbf{Tom Marty}*, Massimo Caccia, Issam H. Laradji, Alexandre Drouin, Sai Rajeswar,\\ Hector Palacios, Quentin Cappart, David Vazquez, Nicolas Chapados, Maxime Gasse, Alexandre Lacoste \\
+    Foundation Models for Decision Making Workshop (NeurIPS). 2023. \hfill \faFilePdf \, \href{https://openreview.net/forum?id=jt3il4fC5B}{PDF}
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced, sharp corners, colback=white, colframe=black!10!white, boxrule=0.5mm, left=10pt, right=10pt, top=6pt, bottom=3pt]
+    \textbf{Learning a Generic Value-Selection Heuristic Inside a Constraint Programming Solver} \\
+    \textbf{Tom Marty}*, Tristan François, Pierre Tessier, Louis Gautier, Louis-Martin Rousseau, Quentin Cappart \\
+    Constraint Programming (CP). 2023. \hfill \faCode  \, \href{https://github.com/corail-research/SeaPearl.jl}{Code} \quad
+    \faFilePdf \, \href{https://arxiv.org/abs/2301.01913}{PDF}
+\end{tcolorbox}
+
+%-----------Invited Talks-----------
+\section{Other Projects}
     \resumeSubHeadingListStart
+        \resumeProjectHeading
+          {\textbf{Leveraging Information Theory to create better optimizers}$|$ \emph{Python}}{May. 2024 -- }
+          \resumeItemListStart
+            \resumeItem{Work in progress...}
+          \resumeItemListEnd
+        \resumeProjectHeading
+          {\textbf{On the necessity of human insight to improve natural adversarial robustness}}{Mar. 2024 -- }
+          \resumeItemListStart
+            \resumeItem{Work in progress...}
+          \resumeItemListEnd
         \resumeProjectHeading
           {\textbf{WebArena : an Open-Source Benchmark for evaluating Web Agents} $|$ \emph{Python}}{Apr. 2023 -- Sept. 2023}
           \resumeItemListStart
-            \resumeItem{\href{https://scholar.google.com/citations?view_op=view_citation&hl=fr&user=-YXor_wAAAAJ&citation_for_view=-YXor_wAAAAJ:UeHWp8X0CEIC}{Workshop paper} accepted at NeurIPS 2023 FMDM Workshop, New Orleans}
-            \resumeItem{Paper under review at ICML 2024}
+            \resumeItem{Paper accepted at ICML 2024, Vienna}
 
           \resumeItemListEnd
         \resumeProjectHeading
-          {\textbf{SeaPearl : an Open-Source RL-driven Constraint-Programming Solver } $|$ \emph{Julia}}{Fev. 2021 -- Jul. 2023}
+          {\textbf{\href{https://3rdcore.github.io/SeaPearl.html}{SeaPearl} : an Open-Source RL-driven Constraint-Programming Solver } $|$ \emph{Julia}}{Fev. 2021 -- Jul. 2023}
           \resumeItemListStart
             \resumeItem{\href{https://scholar.google.com/citations?view_op=view_citation&hl=fr&user=-YXor_wAAAAJ&citation_for_view=-YXor_wAAAAJ:2osOgNQ5qMEC}{Paper} accepted at CP2023, Toronto}
-            \resumeItem{Visit \href{https://3rdcore.github.io/SeaPearl.html}{this link} for detailed explanations}
             
           \resumeItemListEnd
             \resumeProjectHeading
@@ -218,7 +264,6 @@
           \resumeItemListStart
             \resumeItem{Adversarial fine-tunning on large NLP models : \href{https://www.eleuther.ai/}{Eleuther AI} GPT 125M/1.3B/2.7B/6B parameters}
             \resumeItem{Evidence of a correlation between scaling and robustness against increasingly subtle Adversarial Attacks}
-            \resumeItem{Project coordinated by Irina Rish, AI CIFAR Chair holder, MILA}
 
           \resumeItemListEnd
                       \resumeProjectHeading
@@ -240,7 +285,7 @@
           {\textbf{Realtime 3D Deep Motion Capture} $|$ \emph{C++, OpenCV, PyTorch}}{Oct. 2020 -- Dec. 2020}
           \resumeItemListStart
             \resumeItem{Implemented a method of inferring a full character's 3d pose using only  a camera as an input}
-            \resumeItem{Used a EECV 2020 research paper to implement the algorithm}
+            \resumeItem{Inspired by a EECV 2020 research paper to implement the algorithm}
             
           \resumeItemListEnd
       \resumeProjectHeading
@@ -252,10 +297,39 @@
           \resumeItemListEnd
 	
     \resumeSubHeadingListEnd
+%-----------Invited Talks-----------
+\section{Honors and Awards}
+ \resumeSubHeadingListStart
+      \resumeProjectHeading
+      {Distinguished Paper Award at CP2023, Toronto}{Sept. 2023} 
+      \resumeProjectHeading
+      {MITACS Accelerate scholarship of two units for my internship at ServiceNow Research }{Mar. 2023}
+      \resumeProjectHeading
+      {Oustanding Investment Mention, Ecole Polytechnique de Paris}{Jul. 2022}
+      \resumeProjectHeading
+      {Vallet Fondation scholarships for outstanding CPGE students}{2018}
+  \resumeSubHeadingListEnd
 
+%-----------Invited Talks-----------
+\section{Teaching Experience}
+ \resumeSubHeadingListStart
+    \resumeSubheading
+      {Teaching Assistant}{Fall 2022}
+      {INF8215, Artificial Intelligence : Algorithms and methods}{}
 
+        \resumeSubheading
+      {Teaching Assistant}{Fall 2021}
+      {INF8215, Artificial Intelligence : Algorithms and methods}{}
 
+    \resumeSubheading
+      {Teaching Assistant}{Nov. 2018 -- Mar. 2019}
+      {Ministry of National Education}{France}
+      \resumeItemListStart
+        \resumeItem{Responsible for a group of up to 20 undergraduate students during scientific workshops}
+        \resumeItem{Worked alongside the academic team to prepare students for entrance exams}
 
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
 %-----------Hobbies-----------
 \section{Student Association}
  \resumeSubHeadingListStart
@@ -277,14 +351,30 @@
 %-----------PROGRAMMING SKILLS-----------
 \section{Skills \& Hobbies}
  \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-    \textbf{Languages}{: French : Native $|$ English : Fluent $|$ Russian : Primary } \\
+    \item{
+    \textbf{Languages}{: French : Native $|$ English : Fluent $|$ Russian : Primary }} \\
      \textbf{Programming Languages}{: Python, Julia, C++, R} \\
-     \textbf{Developer Tools}{: Git, SLURM, Pytorch, Lightning, Hydra, SCRUM, VScode, Pytest} \\
-    }
-    \textbf{Open-Source web service deployment}{: Nextcloud, Nginx, Swag, OpenMediaVault}\\
+     \textbf{Developer Toolbox}{: Git, Pytorch, Lightning, Hydra, WandB, VScode, SLURM, CI testing} \\
+    
     \textbf{Remote Controlled UAV}{: Conception, Building, Programmation, Testing, Adjustment } \\
-     \textbf{Sports}{: Outdoor climbing, River surf, Ski, Montain hiking } \\}
+     \textbf{Activities}{: Outdoor climbing, river surf, ski, montain hiking }
  \end{itemize}
- 
+ %-----------Invited Talks-----------
+\section{Reference}
+ \resumeSubHeadingListStart
+       \resumeProjectHeading
+          {\textbf{Prof. Dhanya Sridhar}  (Ph.D. advisor)
+            \\ Core academic member of MILA - AI CIFAR Chair holder 
+            \\ Email : dhanya.sridhar@mila.quebec}{}
+       \resumeProjectHeading
+          {\textbf{Dr. Alexandre Lacoste}
+            \\ Staff Research Engineer, ServiceNow Research
+            \\ Email : alexandre.lacoste@servicenow.com }{}
+       \resumeProjectHeading
+          {\textbf{Prof. Quentin Cappart}  (M.Sc. advisor)
+\\ Assistant Professor at Polytechnique Montréal 
+\\ Email : quentin.cappart@polymtl.ca }{}
+    \resumeSubHeadingListEnd
+
+
 \end{document}
